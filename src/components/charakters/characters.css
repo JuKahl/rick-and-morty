@@ -1,0 +1,20 @@
+.card {
+  text-align: center;
+  border: 0.5rem solid rgb(39, 39, 39);
+}
+
+.card__portrait {
+  border-bottom: 0.5rem solid black;
+}
+
+.card__name {
+}
+
+.card__status {
+}
+
+.card__origin {
+}
+
+.card__species {
+}
