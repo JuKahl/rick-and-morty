@@ -1,6 +1,7 @@
 import "./characters.css";
 import { createCard } from "./characters";
 import { createElement } from "../../utils/createElement";
+import { getCharacter, getCharacters } from "../../utils/api";
 
 export default {
   title: "Components/characters",
@@ -62,3 +63,27 @@ export const SummerSmith = () =>
     })
 return container;
   };
+
+  export const CharacterFromAPI = (_args, {loaded: { character } }) => {
+    return createCard(character)
+  }
+
+  CharacterFromAPI.loaders =[
+    async () => ({
+    character: await getCharacter(111),
+    }),
+  ];
+
+  export const CharactersFromAPI = (_args, {loaded: { characters } }) => {
+  const container = createElement ("div", {
+    className: "container",
+    childs: characters.map((character) => createCard(character))
+  })
+  return container;
+}
+
+  CharactersFromAPI.loaders =[
+    async () => ({
+      characters: await getCharacters(),
+    })
+  ]
