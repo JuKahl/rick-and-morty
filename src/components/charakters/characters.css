@@ -7,6 +7,13 @@
   border-bottom: 0.5rem solid black;
 }
 
+.container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .card__name {
 }
 
