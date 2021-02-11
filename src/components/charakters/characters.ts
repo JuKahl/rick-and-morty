@@ -1,14 +1,21 @@
 import { createElement } from "../../utils/createElement";
+import { Character } from "../../utils/api";
 
-export function createCard({ imgSrc, name, status, origin, species }) {
+export function createCard({
+  imgSrc,
+  name,
+  status,
+  species,
+  origin,
+}: Character) {
   return createElement("div", {
     className: "card",
-    children: [
+    childs: [
       createElement("img", {
         className: "card__portrait",
         src: imgSrc,
       }),
-      createElement("H2", {
+      createElement("h2", {
         className: "card__name",
         innerText: name,
       }),
