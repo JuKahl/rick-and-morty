@@ -54,18 +54,16 @@ export async function getCharacter(id: number) {
     `https://rickandmortyapi.com/api/character/${id}`
   );
   const result = (await response.json()) as APICharacter;
-  const character = {
-    imgSrc: result.image,
-    name: result.name,
-    status: result.status,
-    origin: { name: result.origin.name },
-    species: result.species,
-  };
+  const character = convertToCharater(result);
+
   return character;
 }
 
-export async function getCharacters() {
-  const response = await fetch(`https://rickandmortyapi.com/api/character/`);
+export async function getCharacters(name?: string) {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character/${name ? `?name=${name}` : ""}`
+  );
+
   const result = (await response.json()) as APICharacters;
   const characters = result.results.map((apiCharacter) =>
     convertToCharater(apiCharacter)

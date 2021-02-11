@@ -1,6 +1,13 @@
 import { createElement } from "../../utils/createElement";
+import { Character } from "../../utils/api";
 
-export function createCard({ imgSrc, name, status, origin, species }) {
+export function createCard({
+  imgSrc,
+  name,
+  status,
+  species,
+  origin,
+}: Character) {
   return createElement("div", {
     className: "card",
     childs: [
@@ -27,4 +34,3 @@ export function createCard({ imgSrc, name, status, origin, species }) {
     ],
   });
 }
-
